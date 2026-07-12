@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rising Waters - Flood Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🌊 Rising Waters</h1>
+        <h3>AI Powered Flood Prediction System</h3>
+        <p>Enter environmental parameters to estimate flood probability.</p>
+    </div>
+
+    <form action="/predict" method="POST">
+
+        <div class="grid">
+
+            <input type="number" min="0" max="10" name="MonsoonIntensity" placeholder="Monsoon Intensity" required>
+
+            <input type="number" min="0" max="10" name="TopographyDrainage" placeholder="Topography Drainage" required>
+
+            <input type="number" min="0" max="10" name="RiverManagement" placeholder="River Management" required>
+
+            <input type="number" min="0" max="10" name="Deforestation" placeholder="Deforestation" required>
+
+            <input type="number" min="0" max="10" name="Urbanization" placeholder="Urbanization" required>
+
+            <input type="number" min="0" max="10" name="ClimateChange" placeholder="Climate Change" required>
+
+            <input type="number" min="0" max="10" name="DamsQuality" placeholder="Dams Quality" required>
+
+            <input type="number" min="0" max="10" name="Siltation" placeholder="Siltation" required>
+
+            <input type="number" min="0" max="10" name="AgriculturalPractices" placeholder="Agricultural Practices" required>
+
+            <input type="number" min="0" max="10" name="Encroachments" placeholder="Encroachments" required>
+
+            <input type="number" min="0" max="10" name="IneffectiveDisasterPreparedness" placeholder="Disaster Preparedness" required>
+
+            <input type="number" min="0" max="10" name="DrainageSystems" placeholder="Drainage Systems" required>
+
+            <input type="number" min="0" max="10" name="CoastalVulnerability" placeholder="Coastal Vulnerability" required>
+
+            <input type="number" min="0" max="10" name="Landslides" placeholder="Landslides" required>
+
+            <input type="number" min="0" max="10" name="Watersheds" placeholder="Watersheds" required>
+
+            <input type="number" min="0" max="10" name="DeterioratingInfrastructure" placeholder="Infrastructure" required>
+
+            <input type="number" min="0" max="10" name="PopulationScore" placeholder="Population Score" required>
+
+            <input type="number" min="0" max="10" name="WetlandLoss" placeholder="Wetland Loss" required>
+
+            <input type="number" min="0" max="10" name="InadequatePlanning" placeholder="Planning" required>
+
+            <input type="number" min="0" max="10" name="PoliticalFactors" placeholder="Political Factors" required>
+
+        </div>
+
+        <div class="buttons">
+            <button type="submit">🌊 Predict Flood</button>
+            <button type="reset" class="reset-btn">🔄 Reset</button>
+        </div>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result-card">
+
+        <h2>Prediction Result</h2>
+
+        <div class="percentage">
+
+            {{ prediction }}%
+
+        </div>
+
+        <div class="progress">
+
+            <div class="progress-bar"
+                 style="width: {{ prediction }}%; background: {{ color }};">
+            </div>
+
+        </div>
+
+        <h2 style="color:{{color}}">
+            {{ risk }}
+        </h2>
+
+        <p class="advice">
+            {{ advice }}
+        </p>
+
+        <hr>
+
+        <p><strong>Date :</strong> {{ date }}</p>
+
+        <p><strong>Time :</strong> {{ time }}</p>
+
+    </div>
+
+    {% endif %}
+
+    <div class="footer">
+
+        <h4>Developed by</h4>
+
+        <p><strong>Nagajyothi Kamatham</strong></p>
+
+        <p>B.Tech Computer Science & Engineering</p>
+
+        <p>Machine Learning Internship Project</p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
