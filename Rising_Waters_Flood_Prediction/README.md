@@ -124,6 +124,17 @@ The application predicts:
 ## 👩‍💻 Developer
 
 **Nagajyothi Kamatham**
+## Note
+
+The trained model file (`model/flood_model.pkl`) is not included in this repository because it exceeds GitHub's web upload size limit.
+
+To generate the model locally, run:
+
+```bash
+python train_model.py
+```
+
+This will automatically recreate the trained model.
 
 B.Tech - Computer Science and Engineering
 
